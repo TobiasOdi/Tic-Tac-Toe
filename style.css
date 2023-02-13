@@ -1,5 +1,40 @@
 /* =========================================================== ALLGEMEIN ========================================================== */
 
+body {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.playerPanel {
+    display: flex;
+    font-size: 2rem;
+}
+
+.playerPanel img {
+    height: 60px;
+    width: 60px;
+    margin-right: 1rem;
+}
+
+.playerInactive {
+    opacity: 0.5;
+}
+
+.playerPanel > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 2rem;
+    
+}
+
+
 table {
     border-collapse: collapse;
 }
@@ -13,6 +48,11 @@ table td {
     width: 140px;
     height: 140px;
     border: 5px solid black;
+    cursor: pointer;
+}
+
+table td:hover {
+    background-color: rgba(126, 185, 118, 0.1);
 }
 
 table > td > div {
@@ -48,4 +88,29 @@ table tr td:last-child {
     bottom: 30px;
     left: 30px;
 }
+
+.d-none {
+    display: none;
+}
+.horizontalLine {
+    position: absolute;
+    top: 262px;
+    height: 10px;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5);
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+}
+
+.makeVertical {
+    transform: rotate(90deg) scaleX(0.0);
+}
+
+.diagonal {
+    width: 500px;
+}
+
+
+
+
 
