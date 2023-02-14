@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <img class="gameOver d-none" id="gameOver" src="./img/game-over.png" alt="">
+    <button onclick="restart()" class="restart d-none" id="restart">Restart</button>
     <div class="playerPanel">
         <div class="playerInactive" id="player1">
             <img  src="./img/circle.png"> Player 1
@@ -26,10 +28,6 @@
     <div id="line5" class="horizontalLine makeVertical" style="top: 404px; left: 477px"></div>
     <div id="line6" class="horizontalLine diagonal" style="top: 407px; left: 282px; transform: rotate(45deg) scaleX(0.0);"></div>
     <div id="line7" class="horizontalLine diagonal" style="top: 407px; left: 281px; transform: rotate(-45deg) scaleX(0.0);"></div>
-
-
-
-
 
     <table>
         <tr>
