@@ -1,21 +1,49 @@
 /* =========================================================== ALLGEMEIN ========================================================== */
-
 body {
     font-size: 16px;
+    font-family: monospace;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background-image: url(./img/science-fiction2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: transparent(0.5);
+    z-index: -1;
 }
+
+.title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+/* ========================================================== SPIEL ENDE ======================================================= */
 
 .gameOver {
     position: absolute;
     left: 0;
     right: 0;
+    top: 30vh;
     width: 100%;
-    z-index: 2;
+    height: 40vh;
+    z-index: 5;
     animation: zoomIn 225ms ease-in-out;
+    background-color: rgb(25,31,45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+
+.gameOver > div {
+    font-size: 6rem;
+    color: white;
+    font-family: monospace;
 }
 
 @keyframes zoomIn {
@@ -29,7 +57,41 @@ body {
     }
 }
 
+.draw {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 30vh;
+    width: 100%;
+    height: 40vh;
+    z-index: 5;
+    animation: zoomIn 225ms ease-in-out;
+    background-color: rgb(25,31,45);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
 
+.draw > div {
+    font-size: 6rem;
+    color: white;
+    font-family: monospace;
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* =========================================================== SPIELER ANZEIGE ====================================================== */
 .playerPanel {
     display: flex;
     font-size: 2rem;
@@ -52,36 +114,45 @@ body {
     margin-right: 1rem;
     margin-left: 1rem;
     margin-bottom: 2rem;
+    color: white;
     
 }
 
-
+/* =========================================================== SPIELFELD ========================================================== */
 table {
     border-collapse: collapse;
 }
 
+.container{
+    position: relative;
+}
+
 tr {
     width: 420px;
+    position: relative;
 }
 
 table td {
     position: relative;
     width: 140px;
     height: 140px;
-    border: 5px solid black;
+    border: 5px solid white;
     cursor: pointer;
+}
+
+table td > div{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 5px 5px white;
 }
 
 table td:hover {
     background-color: rgba(126, 185, 118, 0.1);
-}
-
-table > td > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
 }
 
 table tr:first-child td {
@@ -113,68 +184,73 @@ table tr td:last-child {
 .d-none {
     display: none;
 }
-.horizontalLine {
+.line {
     position: absolute;
     top: 262px;
     height: 10px;
     width: 400px;
-    background-color: rgba(0,0,0,0.5);
-    transform: scaleX(0.0);
+    background-color: rgb(230,245,237);
+    border-radius: 10px;
+    z-index: 2;
+}
+
+ .horizontal {
+    transform: scaleX(0);
     transition: transform 225ms ease-in-out;
 }
 
-.makeVertical {
-    transform: rotate(90deg) scaleX(0.0);
+.vertical {
+    rotate: 90deg;
+    transform: scaleX(0) rotate(90deg);
+    transition: tranform 225ms ease-in-out;
 }
 
-.diagonal {
+.diagonal1 {
+    rotate: 45deg;
     width: 500px;
+    transform: scaleX(0);
+    transition: transform 225ms ease-in-out;
 }
 
+.diagonal2 {
+    width: 500px;
+    rotate: -45deg;
+    transform: scaleX(0);
+    transition: transform 225ms ease-in-out;
+}
+
+/* =========================================================== SPIEL NEU STARTEN ========================================================== */
 .restart {
-    position: absolute;
-    bottom: 40px;
-    border: 1px solid white;
+    border: 1px solid rgb(230,245,237);
     border-radius: 10px;
-    background-color: rgb(28,11,127);
+    background-color: rgb(149,76,235);
     z-index: 2;
-    width: 300px;
-    height: 80px;
+    width: 260px;
+    height: 70px;
     color: white;
     font-size: 2.5rem;
     cursor: pointer;
-    bottom: 40px;
-    animation: zoomIn 225ms ease-in-out;
-
+    z-index: 7;
 }
-
-@keyframes zoomIn {
-    from {
-        opacity: 0;
-        transform: scale(0);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 .restart:hover {
-    background-color: rgb(71, 47, 204);
-
+    background-color: rgb(161, 116, 213);
 }
+
+/* =========================================================== UNENTSCHIEDEN ========================================================== */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
