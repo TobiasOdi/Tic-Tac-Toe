@@ -93,20 +93,24 @@ function checkForWin() {
     }
 
     if(winner) {
+        let playerWon = winner;
+        if (playerWon == 'circle') {
+            playerWon = 1;
+        } else {
+            playerWon = 2;
+        }
+
         gameOver = true;
         setTimeout(function(){
             document.getElementById('gameOver').classList.remove('d-none');
+            document.getElementById('playerWon').innerHTML = playerWon;
         }, 1000);
     }  
     
-     else if (fields.length == 9 && !fields.includes('')){
+    if (fields.length === 9 && !fields.includes(undefined)){
         gameOver = true;
         setTimeout(function(){
             document.getElementById('draw').classList.remove('d-none');
         }, 1000);
     } 
-}
-
-function draw() {
-
 }
