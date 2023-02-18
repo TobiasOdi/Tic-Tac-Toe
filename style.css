@@ -1,4 +1,8 @@
 /* =========================================================== ALLGEMEIN ========================================================== */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-size: 16px;
     font-family: monospace;
@@ -6,6 +10,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-grow: 1;
     min-height: 100vh;
     background-image: url(./img/science-fiction2.jpg);
     background-position: center;
@@ -13,11 +18,11 @@ body {
     background-size: cover;
     background: transparent(0.5);
     z-index: -1;
+    margin: 0;
 }
 
 .title {
     font-size: 3rem;
-    margin-bottom: 1.5rem;
     color: white;
 }
 
@@ -35,7 +40,7 @@ body {
     background-color: rgb(25,31,45);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     opacity: 0.8;
 }
@@ -92,9 +97,18 @@ body {
 }
 
 /* =========================================================== SPIELER ANZEIGE ====================================================== */
+.playerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .playerPanel {
     display: flex;
     font-size: 2rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
 .playerPanel img {
@@ -113,9 +127,40 @@ body {
     align-items: center;
     margin-right: 1rem;
     margin-left: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     color: white;
-    
+}
+
+.playerNames {
+    background-color: transparent;
+    color: white;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.8rem;
+    height: 40px;
+    width: 220px;
+    outline: none;
+    box-shadow: 2px 2px 2px 0px white;
+    border: none;
+}
+
+.deletePlayerNames {
+    border: 1px solid rgb(230,245,237);
+    border-radius: 10px;
+    background-color: rgb(149,76,235);
+    margin-bottom: 1.5rem;
+    z-index: 2;
+    width: 220px;
+    height: 35px;
+    color: rgb(230,245,237);
+    font-size: 1.2rem;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0.8;
+}
+
+.deletePlayerNames:hover {
+    background-color: rgb(161, 116, 213);
 }
 
 /* =========================================================== SPIELFELD ========================================================== */
@@ -125,6 +170,9 @@ table {
 
 .container{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 tr {
@@ -143,6 +191,7 @@ table td {
 table td > div{
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     display: flex;
@@ -172,13 +221,8 @@ table tr td:last-child {
 }
 
 .shape {
-    position: absolute;
     width: 80px;
     height: 80px;
-    top: 30px;
-    right: 30px;
-    bottom: 30px;
-    left: 30px;
 }
 
 .d-none {
@@ -186,7 +230,6 @@ table tr td:last-child {
 }
 .line {
     position: absolute;
-    top: 262px;
     height: 10px;
     width: 400px;
     background-color: rgb(230,245,237);
@@ -201,8 +244,8 @@ table tr td:last-child {
 
 .vertical {
     rotate: 90deg;
-    transform: scaleX(0) rotate(90deg);
-    transition: tranform 225ms ease-in-out;
+    transform: scaleX(0);
+    transition: transform 225ms ease-in-out;
 }
 
 .diagonal1 {
@@ -240,6 +283,246 @@ table tr td:last-child {
 /* =========================================================== UNENTSCHIEDEN ========================================================== */
 
 
+
+
+/* =========================================================== UNENTSCHIEDEN ========================================================== */
+@media(max-width: 990px){
+.gameOver > div{
+    font-size: 4rem;
+}
+
+.draw > div{
+    font-size: 4rem;
+}
+
+.restart {
+    width: 12rem;
+    height: 3rem;
+}
+}
+
+@media(max-width: 685px){
+    .playerContainer {
+        margin-top: 1.5rem;
+    }
+
+    tr {
+        width: 336px;
+    }
+
+    table td {
+        width: 112px;
+        height: 112px;
+    }
+
+    .shape {
+        width: 64px;
+        height: 64px;
+    }
+
+    .line {
+        height: 8px;
+        width: 320px;
+    }
+
+    .diagonal1, .diagonal2 {
+        width: 400px;
+    }
+
+    #line0 {
+        top: 50px !important;
+        left: 7px !important;
+    }
+
+    #line1 {
+        top: 164px !important;
+        left: 7px !important;
+    }
+
+    #line2 {
+        top: 277px !important;
+        left: 7px !important;
+    }
+
+    #line3 {
+        top: 166px !important;
+        left: -105px !important;
+    }
+
+    #line4 {
+        top: 166px !important;
+        left: 8px !important;
+    }
+
+    #line5 {
+        top: 166px !important;
+        left: 121px !important;
+    }
+
+    #line6 {
+        top: 166px !important;
+        left: -29px !important;
+    }
+    #line7 {
+        top: 166px !important;
+        left: -35px !important;
+    }
+
+    .playerPanel {
+        flex-direction: column;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .deletePlayerNames {
+        margin-bottom: 1;
+    }
+
+    .playerNames {
+        font-size: 1.2rem;
+    }
+
+    .gameOver > div {
+        font-size: 3rem;
+    }
+    .draw > div {
+        font-size: 3rem;
+    }
+
+    .restart {
+        font-size: 2rem;
+    }
+}
+
+@media(max-width: 500px){
+    .gameOver {
+        height: 30vh;
+    }
+
+    .gameOver > div {
+        font-size: 2.5rem;
+    }
+
+    .draw {
+        height: 30vh;
+    }
+
+    .draw > div{
+        font-size: 2.5rem;
+    }
+
+    .restart {
+        font-size: 1.8rem;
+        width: 10rem;
+        height: 2.5rem;
+    }
+}
+
+@media(max-width: 445px){
+    .gameOver > div{
+        font-size: 1.8rem;
+    }
+
+    .gameOver {
+        height: 30vh;
+    }
+
+    .draw > div {
+        font-size: 1.8rem;
+    }
+
+    .draw {
+        height: 30vh;
+    }
+
+    .restart {
+        font-size: 1.6rem;
+        width: 9rem;
+        height: 2.2rem;
+    }
+}
+
+@media(max-width: 400px){
+    body {
+        justify-content: flex-start;
+        padding-top: 2rem;
+    }
+
+    tr {
+        width: 252px;
+    }
+
+    table td {
+        width: 84px;
+        height: 84px;
+    }
+
+    .shape {
+        width: 48px;
+        height: 48px;
+    }
+
+    .line {
+        height: 6px;
+        width: 240px;
+    }
+
+    .diagonal1, .diagonal2 {
+        width: 300px;
+    }
+
+    #line0 {
+        top: 38px !important;
+        left: 7px !important;
+    }
+
+    #line1 {
+        top: 123px !important;
+        left: 7px !important;
+    }
+
+    #line2 {
+        top: 209px !important;
+        left: 7px !important;
+    }
+
+    #line3 {
+        top: 124px !important;
+        left: -79px !important;
+    }
+
+    #line4 {
+        top: 124px !important;
+        left: 8px !important;
+    }
+
+    #line5 {
+        top: 124px !important;
+        left: 91px !important;
+    }
+
+    #line6 {
+        top: 125px !important;
+        left: -22px !important;
+    }
+    #line7 {
+        top: 125px !important;
+        left: -25px !important;
+    }
+
+    .playerPanel img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .playerNames {
+        width: 180px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+}
 
 
 
